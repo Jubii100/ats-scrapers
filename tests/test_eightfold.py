@@ -648,7 +648,7 @@ def test_parse_ts_epoch_is_utc_aware(value: int) -> None:
     host's local timezone, and must compare with the ISO-string path."""
     result = _parse_ts(value)
     assert result is not None
-    assert result.tzinfo is not None
+    assert result.tzinfo is UTC
     assert result == datetime(2026, 1, 1, tzinfo=UTC)
     assert result == _parse_ts("2026-01-01T00:00:00Z")
 
